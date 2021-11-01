@@ -1,10 +1,6 @@
 /*
  *  cubicSpline.cpp
- *  SplineFitting
- *  This file contains cubic spline functions
- *
- *  Created by Yazhi Fan (yf92) and Yijia Chen (yc2366) on 5/10/18.
- *  Copyright © 2018 Yazhi and Yijia. All rights reserved.
+ *  cubic spline functions
  *
  */
 
@@ -66,18 +62,11 @@ void cubicSpline(vector<double> x, vector<double> y, vector<double> &qx, vector<
         qt[i] = qt[i - 1] + 1.0*(t.size()-1) / qx.size();
     }
 
-    int derivative_s=clock();   //derivative calculation start time
-
     //obtain derivatives
     vector<double> ky(qt.size());
     vector<double> kx(qt.size());
     ky = splineDerivative(t.size(), t, y);
     kx = splineDerivative(t.size(), t, x);
-
-    int derivative_e=clock();
-
-    cout << "slope function calculation completed in "
-         << (derivative_e-derivative_s)/double(CLOCKS_PER_SEC)*1000 << "ms"<<endl;
 
     //if the first point and the last points are exactly the same, then the
     //curve is enclosed, and derivatives should match at the enclosure point
@@ -88,8 +77,6 @@ void cubicSpline(vector<double> x, vector<double> y, vector<double> &qx, vector<
         kx[kx.size()-1] = kx[0];
     }
 
-    int spline_s=clock();   //derivative calculation start time
-
     for (int j = 1; j < qt.size(); j++) {
         int i = 0;
         while (t[i]<qt[j] && i<t.size()){
@@ -98,18 +85,9 @@ void cubicSpline(vector<double> x, vector<double> y, vector<double> &qx, vector<
         qy[j] = cubicPoint(i , qt[j], t, y, ky);
         qx[j] = cubicPoint(i , qt[j], t, x, kx);
     }
-
-    int spline_e=clock();
-
-    cout << "spline interpolation completed in "
-         << (spline_e-spline_s)/double(CLOCKS_PER_SEC)*1000 << "ms"<<endl;
-
 }
 
 vector<double> constructVariables (string address) {
-
-    int file_s=clock();   //derivative calculation start time
-
     //initiate vector x to store all elements in file
     vector<double> x;
 
@@ -130,11 +108,6 @@ vector<double> constructVariables (string address) {
         double value = stod(line);
         x.push_back(value);
     }
-
-    int file_e=clock();
-
-    cout << "file read completed in "
-         << (file_e-file_s)/double(CLOCKS_PER_SEC)*1000 << "ms"<<endl;
 
     return x;
 }
