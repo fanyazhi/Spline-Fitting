@@ -16,12 +16,12 @@ In version 2.0, I added in examples, made the coding style better, and added mor
 * Second Derivative test and Raylib visual validation.
 
 ## How to compile this project:
-* Simply use the make file under the depot root directory to compile the Spline Fitting console program
-* Note that this depot contains another make file to compile the Raylib integrated example. This Raylib GUI app is a nice graphical validation for the Spline Fitting algorithm. Also note that this Raylib GUI app only contains limited functionalities (limited range of possible points because you can only select from screen, limited number of points because of hand cramp, etc...).
+* Use the make file in the depot's root directory to compile the Spline Fitting console program
 * If you want to compile the Raylib GUI app
 1. Install Raylib (raylib_installer_v370.mingw.exe) from https://github.com/raysan5/raylib/releases
 2. The default installation path should be C:/raylib/raylib. If you install to different path, change RAYLIB_PATH in makefile
 3. use the make inside raylib-gui-app compile
+4. Note that the Raylib GUI app is a nice graphical validation for the Spline Fitting algorithm. But it only showcases limited functionalities (limited range of possible points because you can only select from screen, limited number of anchor points because of hand cramp, etc...).
 
 ## A little bit of the math background:
 

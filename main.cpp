@@ -1,7 +1,8 @@
 /*
  *  main.cpp
  *  SplineFitting
- *  This file shows an example usage of the spline fitting method
+ *  This file shows an example usage of the spline fitting method.
+ *  This example produces a smooth sinusoid curve with just 6 anchor points.
  */
 
 #include <iostream>
@@ -15,18 +16,20 @@
 
 int main() {
     //--------------------------------------------------------------------------------------
-    // Step 1: read anchor points from csv file
+    // Step 1: construct the anchor points or read from file
     //--------------------------------------------------------------------------------------
-    std::cout << "reading csv..." << std::endl;
-    std::vector<double> x = constructVariables("../examples/example_input_sine_x.csv");
-    std::vector<double> y = constructVariables("../examples/example_input_sine_y.csv");
+    std::cout << "constructing the anchor points..." << std::endl;
+    std::vector<double> x { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
+    std::vector<double> y { 0.0, 1.0, 0.0, -1.0, 0.0, 1.0 };
+    // std::vector<double> x = constructVariables("../examples/example_input_sine_x.csv");
+    // std::vector<double> y = constructVariables("../examples/example_input_sine_y.csv");
 
     //--------------------------------------------------------------------------------------
     // Step 2: initialize amount of points you want to be returned
     //         higher number means smoother line
     //         initialize qx, qy for extraction
     //--------------------------------------------------------------------------------------
-    int points = 20000;
+    int points = 500;
     std::vector<double> qx(points);
     std::vector<double> qy(points);
 

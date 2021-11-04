@@ -30,6 +30,6 @@ void secondDerivativeTest(std::vector<double> qx, std::vector<double> qy) {
         std::cout << "Resulting curve has continuous second drivative, : " << norm << std::endl;
     } else {
         std::cout << "Resulting curve does not have continuous second drivative: " << norm << std::endl;
-        std::cout << "Current threshold is set at " << threshold << ", decrease threshold or add more points (>10000) may solve the issue." << std::endl;
+        std::cout << "Current threshold is set at " << threshold << ", decrease threshold or add more points (>10000) to produce a continuous result." << std::endl;
     }
 }
