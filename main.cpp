@@ -9,9 +9,9 @@
 #include <ostream>
 #include <vector>
 
-#include "CRSmatrix.h"
-#include "cubicSpline.h"
-#include "secondDerivativeTest.h"
+#include "src/CRSmatrix.h"
+#include "src/cubicSpline.h"
+#include "src/secondDerivativeTest.h"
 
 int main() {
     //--------------------------------------------------------------------------------------

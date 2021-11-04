@@ -52,6 +52,7 @@ LIBS		:= $(patsubst %,-L%, $(LIBDIRS:%/=%))
 
 # define the C source files
 SOURCES		:= $(wildcard $(patsubst %,%/*.cpp, $(SOURCEDIRS)))
+SOURCES     += main.cpp
 
 # define the C object files 
 OBJECTS		:= $(SOURCES:.cpp=.o)
