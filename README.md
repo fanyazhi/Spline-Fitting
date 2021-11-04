@@ -4,7 +4,7 @@ WIP
 
 c++ spline fitting ver 2.0 (2021 Nov)
 
-The Spline Fitting program was originally the final project I wrote for ECE 4960, one of the most useful course I took at Cornell in 2018. All assignments in this course were written from scratch. 
+The Spline Fitting program was originally the final project I wrote for ECE 4960 in 2018. All assignments in this course were written from scratch. 
 
 In version 2.0, I will add in examples, make the coding style better, and add more documentations. I will also add a Raylib integrated example, for visual validations.
 
