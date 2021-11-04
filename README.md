@@ -40,7 +40,7 @@ Enclosed Heart Shape, 20 anchor points, 500 interpolated points
 
 **Spline**
 
-Basic splines or b-splines are curves constrained by anchors and continuous derivatives. Anchor points are the defined points or the known points. Then the rest of the curve is made up of interpolated poins. To check the continuous derivative requirement, we can calculate the second derivative at each point and compre it with it's neighbors' second derivatives. The difference should be 0. 
+Basic splines or b-splines are curves constrained by anchors and continuous derivatives. Anchor points are the defined points or the known points. Then the rest of the curve is made up of interpolated poins. To check the continuous derivative requirement, we can calculate the second derivative at each point and compre it with its neighbors' second derivatives. The difference should be 0. 
 
 
 ## References:
