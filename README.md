@@ -20,12 +20,17 @@ In version 2.0, I added in examples, made the coding style better, and added mor
 * If you want to compile the Raylib GUI app
 1. Install Raylib (raylib_installer_v370.mingw.exe) from https://github.com/raysan5/raylib/releases
 2. The default installation path should be C:/raylib/raylib. If you install to different path, change RAYLIB_PATH in makefile
-3. use the make inside raylib-gui-app compile
+3. Use the make file inside raylib-gui-app sub-direcory to compile the Spline Fitting windows app
 4. Note that the Raylib GUI app is a nice graphical validation for the Spline Fitting algorithm. But it only showcases limited functionalities (limited range of possible points because you can only select from screen, limited number of anchor points because of hand cramp, etc...).
 
 ## A little bit of the math background:
 
 **Spline**
+Basic splines or b-splines are curves constrained by anchors and continuous derivatives. Anchor points are the defined points or the known points. Then the rest of the curve is made up of interpolated poins. To check the continuous derivative requirement, we can calculate the second derivative at each point and compre it with it's neighbors' second derivatives. The difference should be 0. 
+
+## Examples
+![Sinusoid](https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/Sinusoid.PNG)
+![Enclosed Circle: 100 anchor points, 500 interpolated points](https://your-copied-image-address)
 
 ## References:
 * Raylib makefile and vscode files are modified from https://github.com/raysan5/raylib/blob/master/projects/VSCode/Makefile. The original makefile was written for C, I modified it slightly to make it compile for C++. I also removed many of the multiplatform supports to trim it down. 
