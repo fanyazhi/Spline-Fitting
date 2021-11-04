@@ -12,21 +12,24 @@
                 "command": "powershell",
                 "args": [
                     "-c",
-                    "mingw32-make"
+                    "mingw32-make",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             },
             "linux": {
                 "command": "bash",
                 "args": [
                     "-c",
-                    "make"
+                    "make",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             },
             "osx": {
                 "command": "bash",
                 "args": [
                     "-c",
-                    "make"
+                    "make",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             }
         },
@@ -37,21 +40,24 @@
                 "command": "powershell",
                 "args": [
                     "-c",
-                    "'mingw32-make run'"
+                    "'mingw32-make run'",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             },
             "linux": {
                 "command": "bash",
                 "args": [
                     "-c",
-                    "'make run'"
+                    "'make run'",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             },
             "osx": {
                 "command": "bash",
                 "args": [
                     "-c",
-                    "'make run'"
+                    "'make run'",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             }
         },
@@ -62,21 +68,24 @@
                 "command": "powershell",
                 "args": [
                     "-c",
-                    "'mingw32-make clean'"
+                    "'mingw32-make clean'",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             },
             "linux": {
                 "command": "bash",
                 "args": [
                     "-c",
-                    "'make clean'"
+                    "'make clean'",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             },
             "osx": {
                 "command": "bash",
                 "args": [
                     "-c",
-                    "'make clean'"
+                    "'make clean'",
+                    "RAYLIB_PATH=C:/raylib/raylib",
                 ]
             }
         }

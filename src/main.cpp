@@ -1,60 +1,55 @@
 /*
  *  main.cpp
  *  SplineFitting
- *  This file contains an example usage of the spline fitting method
- *  Please change the file path for own use
- *
- *  Created by Yazhi Fan (yf92) and Yijia Chen (yc2366) on 5/10/18.
- *  Copyright © 2018 Yazhi and Yijia. All rights reserved.
- *
+ *  This file shows an example usage of the spline fitting method
  */
 
 #include <iostream>
+#include <iterator>
+#include <ostream>
 #include <vector>
-#include "cubicSpline.h"
+
 #include "CRSmatrix.h"
-#include "test.h"
-
-using namespace std;
-
-// ----------------------------------------------------------------------------------------
+#include "cubicSpline.h"
+#include "secondDerivativeTest.h"
 
 int main() {
+    //--------------------------------------------------------------------------------------
+    // Step 1: read anchor points from csv file
+    //--------------------------------------------------------------------------------------
+    std::cout << "reading csv..." << std::endl;
+    std::vector<double> x = constructVariables("../examples/example_input_sine_x.csv");
+    std::vector<double> y = constructVariables("../examples/example_input_sine_y.csv");
 
-    cout << "reading csv..." << endl; 
-    //read the given x and y points
-    vector<double> x = constructVariables("../examples/x.csv");
-    vector<double> y = constructVariables("../examples/y.csv");
+    //--------------------------------------------------------------------------------------
+    // Step 2: initialize amount of points, qx, qy for extraction
+    //--------------------------------------------------------------------------------------
+    int points = 20000;
+    std::vector<double> qx(points);
+    std::vector<double> qy(points);
 
-    for (auto i: x) {
-        cout << i << " ";
-    }
-    cout << endl;
-    for (auto i: y) {
-        cout << i << " ";
-    }
-    cout << endl;
-
-    //initialize qx and qy for extraction
-    int points = 10;
-    vector<double> qx(points);
-    vector<double> qy(points);
-
-    cout << "calculating spline..." << endl;
-    //call cubic spline
+    //--------------------------------------------------------------------------------------
+    // Step 3: perform cubic spline calculation
+    //--------------------------------------------------------------------------------------
+    std::cout << "calculating spline..." << std::endl;
     cubicSpline(x, y, qx, qy);
 
-    for (auto i: qx) {
-        cout << i << " ";
-    }
-    cout << endl;
-    for (auto i: qy) {
-        cout << i << " ";
-    }
-    cout << endl;
+    //--------------------------------------------------------------------------------------
+    // Optional: save result to output file
+    //--------------------------------------------------------------------------------------
+    std::ofstream outputFile_x("../examples/example_output_sine_x.csv");
+    std::ostream_iterator<double> output_iterator_x(outputFile_x, "\n");
+    std::copy(qx.begin(), qx.end(), output_iterator_x);
+    outputFile_x.close();
+    std::ofstream outputFile_y("../examples/example_output_sine_y.csv");
+    std::ostream_iterator<double> output_iterator_y(outputFile_y, "\n");
+    std::copy(qy.begin(), qy.end(), output_iterator_y);
+    outputFile_y.close();
 
-    //test for continuous second derivative
-    //secondDerivativeTest(qx, qy);
+    //--------------------------------------------------------------------------------------
+    // Optional: perform a continuous second derivative test to verify the result
+    //--------------------------------------------------------------------------------------
+    secondDerivativeTest(qx, qy);
 
     return 0;
 }

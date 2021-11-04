@@ -2,17 +2,13 @@
  *  test.h
  *  SplineFitting
  *  This file contains test and validation method
- *
- *  Created by Yazhi Fan (yf92) and Yijia Chen (yc2366) on 5/10/18.
- *  Copyright © 2018 Yazhi and Yijia. All rights reserved.
- *
  */
 
 #ifndef SPLINEFITTING_TEST_H
 #define SPLINEFITTING_TEST_H
 
-#include "cubicSpline.h"
 #include "CRSmatrix.h"
+#include "cubicSpline.h"
 
 // ----------------------------------------------------------------------------------------
 
@@ -27,7 +23,6 @@
         Return:
                 N/A
 */
-void secondDerivativeTest(vector<double> qx, vector<double> qy);
+void secondDerivativeTest(std::vector<double> qx, std::vector<double> qy);
 
-
-#endif //SPLINEFITTING_TEST_H
+#endif  //SPLINEFITTING_TEST_H
