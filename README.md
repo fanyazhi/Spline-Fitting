@@ -33,7 +33,7 @@ Enclosed Circle, 100 anchor points, 500 interpolated points
 <img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/QuarterCircle_70_500.PNG" width="200" />
 3/4 Circle, 70 anchor points, 500 interpolated points
 
-<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/EnclosedCircle_100_500.PNG" width="200" />
+<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/HeartShape_20_500.PNG" width="200" />
 Enclosed Heart Shape, 20 anchor points, 500 interpolated points
 
 ## A little bit of the math background:
