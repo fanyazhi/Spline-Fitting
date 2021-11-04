@@ -29,8 +29,13 @@ In version 2.0, I added in examples, made the coding style better, and added mor
 Basic splines or b-splines are curves constrained by anchors and continuous derivatives. Anchor points are the defined points or the known points. Then the rest of the curve is made up of interpolated poins. To check the continuous derivative requirement, we can calculate the second derivative at each point and compre it with it's neighbors' second derivatives. The difference should be 0. 
 
 ## Examples
-![Sinusoid](https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/Sinusoid.PNG)
-![Enclosed Circle: 100 anchor points, 500 interpolated points](https://your-copied-image-address)
+<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/Sinusoid.PNG" width="200" />
+Sinusoid in the main.cpp example
+
+<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/EnclosedCircle_100_500.PNG" width="200" />
+Enclosed Circle, 100 anchor points, 500 interpolated points
+
+
 
 ## References:
 * Raylib makefile and vscode files are modified from https://github.com/raysan5/raylib/blob/master/projects/VSCode/Makefile. The original makefile was written for C, I modified it slightly to make it compile for C++. I also removed many of the multiplatform supports to trim it down. 
