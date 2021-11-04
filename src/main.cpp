@@ -22,7 +22,9 @@ int main() {
     std::vector<double> y = constructVariables("../examples/example_input_sine_y.csv");
 
     //--------------------------------------------------------------------------------------
-    // Step 2: initialize amount of points, qx, qy for extraction
+    // Step 2: initialize amount of points you want to be returned
+    //         higher number means smoother line
+    //         initialize qx, qy for extraction
     //--------------------------------------------------------------------------------------
     int points = 20000;
     std::vector<double> qx(points);

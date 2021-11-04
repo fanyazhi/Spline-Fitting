@@ -2,17 +2,13 @@
  *  cubicSpline.h
  *  SplineFitting
  *  This file contains cubic spline functions
- *
- *  Created by Yazhi Fan (yf92) and Yijia Chen (yc2366) on 5/10/18.
- *  Copyright © 2018 Yazhi and Yijia. All rights reserved.
- *
  */
 
 #ifndef SPLINEFITTING_CUBICSPLINE_H
 #define SPLINEFITTING_CUBICSPLINE_H
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -65,6 +61,6 @@ void cubicSpline(vector<double> x, vector<double> y, vector<double> &qx, vector<
         Return:
                 vector that contains the list values
 */
-vector<double> constructVariables (string address);
+vector<double> constructVariables(string address);
 
-#endif //SPLINEFITTING_CUBICSPLINE_H
+#endif  //SPLINEFITTING_CUBICSPLINE_H
