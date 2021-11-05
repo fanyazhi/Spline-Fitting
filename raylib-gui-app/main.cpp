@@ -20,43 +20,70 @@ int main() {
     const int screenWidth = 800;
     const int screenHeight = 450;
 
-    InitWindow(screenWidth, screenHeight, "raylib");
+    InitWindow(screenWidth, screenHeight, "Cubic Spline Fitting");
 
     SetTargetFPS(60);  // Set our game to run at 60 frames-per-second
+
+    bool newInput = false;  // this is the initial state of the game
+
+    // initialize anchor points and interpolated points
+    //--------------------------------------------------------------------------------------
+    vector<double> x;
+    vector<double> y;
+    int points = 1000;
+    vector<double> qx(points);
+    vector<double> qy(points);
 
     // Main game loop
     //--------------------------------------------------------------------------------------
     while (!WindowShouldClose())  // Detect window close button or ESC key
     {
-        // Spline code
-        //--------------------------------------------------------------------------------------
+        // text prompts
         DrawText("Use Left mouse button to set anchor points", 10, 10, 20, DARKGRAY);
-        DrawText("Press Enter to draw spline curve", 10, 50, 20, DARKGRAY);
-        DrawText("Press R to reset", 10, 90, 20, DARKGRAY);
+        DrawText("Press Enter to reset", 10, 50, 20, DARKGRAY);
 
-        // //read the given x and y points
-        vector<double> x{10, 20, 30, 40, 50, 60, 500, 700};
-        vector<double> y{10, 30, 40, 60, 80, 120, 200, 400};
+        // let player input anchor points
+        if (newInput) {
+            // calculate the spline curve interpolated points after getting over 3 anchor points
+            if (x.size() > 3) {
+                cubicSpline(x, y, qx, qy);
+            }
+            newInput = false;
+        } else {
+            if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                Vector2 pos = GetMousePosition();
+                x.push_back(pos.x);
+                y.push_back(pos.y);
+                newInput = true;
+            }
+        }
 
-        // //initialize qx and qy for extraction
-        int points = 50;
-        vector<double> qx(points);
-        vector<double> qy(points);
-
-        // cout << "calculating spline..." << endl;
-        // //call cubic spline
-        cubicSpline(x, y, qx, qy);
+        // reset everything
+        if (IsKeyPressed(KEY_ENTER)) {
+            x.clear();
+            y.clear();
+            std::fill(qx.begin(), qx.end(), 0);
+            std::fill(qy.begin(), qy.end(), 0);
+            newInput = false;
+        }
 
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-
-        //DrawCircle(int centerX, int centerY, float radius, Color color);
-        for (int i = 0; i < points; i++) {
-            DrawCircle(qx[i], qy[i], 2, RED);
+        // Draw interpolated points if there are more than 3 anchor points
+        // Otherwise, draw anchor points
+        if (x.size() > 3) {
+            for (int i = 0; i < points; i++) {
+                DrawCircle(qx[i], qy[i], 2, RED);
+            }
+        } else {
+            for (int i = 0; i < x.size(); i++) {
+                DrawCircle(x[i], y[i], 2, RED);
+            }
         }
+
 
         EndDrawing();
         //----------------------------------------------------------------------------------
