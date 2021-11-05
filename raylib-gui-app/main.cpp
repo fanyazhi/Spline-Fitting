@@ -14,6 +14,7 @@
 #include "raylib.h"
 
 int main() {
+    //--------------------------------------------------------------------------------------
     // initialize RAYLIB window
     //--------------------------------------------------------------------------------------
 
@@ -24,8 +25,7 @@ int main() {
 
     SetTargetFPS(60);  // Set our game to run at 60 frames-per-second
 
-    bool newInput = false;  // this is the initial state of the game
-
+    //--------------------------------------------------------------------------------------
     // initialize anchor points and interpolated points
     //--------------------------------------------------------------------------------------
     vector<double> x;
@@ -34,6 +34,9 @@ int main() {
     vector<double> qx(points);
     vector<double> qy(points);
 
+    bool newInput = false;  // initial state of the game
+
+    //--------------------------------------------------------------------------------------
     // Main game loop
     //--------------------------------------------------------------------------------------
     while (!WindowShouldClose())  // Detect window close button or ESC key
@@ -67,10 +70,10 @@ int main() {
             newInput = false;
         }
 
+        //----------------------------------------------------------------------------------
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
-
         ClearBackground(RAYWHITE);
         // Draw interpolated points if there are more than 3 anchor points
         // Otherwise, draw anchor points
@@ -83,15 +86,13 @@ int main() {
                 DrawCircle(x[i], y[i], 2, RED);
             }
         }
-
         EndDrawing();
-        //----------------------------------------------------------------------------------
     }
 
+    //--------------------------------------------------------------------------------------
     // De-Initialization
     //--------------------------------------------------------------------------------------
     CloseWindow();  // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
 
     return 0;
 }
