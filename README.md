@@ -2,7 +2,7 @@
 
 c++ spline fitting ver 2.0 (2021 Nov)
 
-<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/demo.gif" width="500" />
+<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/demo.gif" width="400" />
 
 The Spline Fitting program was originally the final project I wrote for ECE 4960 in 2018. All assignments in this course were written from scratch. 
 
