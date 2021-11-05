@@ -1,6 +1,6 @@
 # Spline-Fitting
 
-<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/demo.gif" width="200" />
+<img src="https://github.com/fanyazhi/Spline-Fitting/blob/main/examples/demo.gif" width="500" />
 
 c++ spline fitting ver 2.0 (2021 Nov)
 
